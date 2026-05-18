@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1646,4 +1647,1654 @@
   </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Samuel Cobo Photography portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Futura+PT:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --off-white: #f0ece4;
+      --warm-gray: #8a8278;
+      --accent: #c8b89a;
+      --text-dim: #4a4640;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 150%;
+      overflow: auto;
+      width: 100vw;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--off-white);
+      font-family: 'Futura PT', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      width: 100vw;
+      touch-action: manipulation;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* â”€â”€â”€ NAV â”€â”€â”€ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.6rem 3rem;
+      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95) 0%, transparent 100%);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--off-white);
+    }
+
+    /* â”€â”€â”€ HERO â”€â”€â”€ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img/hero.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.45);
+      transition: transform 0.1s ease-out;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(10, 10, 10, 1) 0%,
+          rgba(10, 10, 10, 0.3) 40%,
+          transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 0 3rem 5rem;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1s 0.8s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: lineGrow 2s 1.5s infinite;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes lineGrow {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scaleY(0.5);
+        transform-origin: top;
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+    }
+
+    /* â”€â”€â”€ SECTION BASE â”€â”€â”€ */
+    section {
+      padding: 8rem 3rem;
+    }
+
+    .section-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 1.5rem 0 3rem;
+    }
+
+    /* â”€â”€â”€ ABOUT â”€â”€â”€ */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 1px solid var(--accent);
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: grayscale(20%);
+    }
+
+    .about-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .about-text h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .about-text p {
+      font-size: 0.75rem;
+      line-height: 1.9;
+      color: var(--warm-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-contact {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .about-contact a {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+
+    .about-contact a:hover {
+      color: var(--accent);
+    }
+
+    /* â”€â”€â”€ PROJECTS â”€â”€â”€ */
+    #projects {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    #projects .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .projects-header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0;
+    }
+
+    .projects-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+    }
+
+    /* â”€â”€â”€ SLIDER â”€â”€â”€ */
+    .slider-wrap {
+      position: relative;
+      padding: 0 3rem;
+      user-select: none;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .slider-track {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #0d0d0d;
+      touch-action: pan-y;
+    }
+
+    .slider-inner {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+      touch-action: pan-y;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      background: #0a0a0a;
+    }
+
+    .slide img {
+      width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .slide-empty {
+      width: 100%;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed var(--text-dim);
+    }
+
+    .slide-empty span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      background: rgba(10, 10, 10, 0.7);
+      border: 1px solid rgba(200, 184, 154, 0.3);
+      color: var(--off-white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+      backdrop-filter: blur(4px);
+    }
+
+    .slider-arrow:hover {
+      background: rgba(200, 184, 154, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .slider-arrow.prev {
+      left: 1rem;
+    }
+
+    .slider-arrow.next {
+      right: 1rem;
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .slider-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .slider-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+    /* â”€â”€â”€ VIMEO â”€â”€â”€ */
+    .vimeo-wrap {
+      padding: 0 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .vimeo-inner {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .vimeo-inner iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* â”€â”€â”€ ALBUMS â”€â”€â”€ */
+    .album-section {
+      padding: 7rem 0;
+      border-top: 1px solid var(--text-dim);
+    }
+
+    .album-header {
+      margin-bottom: 3rem;
+    }
+
+    .album-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .album-desc {
+      font-size: 0.68rem;
+      line-height: 1.9;
+      color: var(--warm-gray);
+      max-width: 680px;
+      margin-top: 0.5rem;
+    }
+
+    /* â”€â”€â”€ WORK HISTORY â”€â”€â”€ */
+    #work {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    #work h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      margin-bottom: 3rem;
+      grid-column: 1 / -1;
+    }
+
+    .work-block h3 {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .work-list {
+      list-style: none;
+    }
+
+    .work-list li {
+      font-size: 0.72rem;
+      line-height: 1.8;
+      color: var(--warm-gray);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .work-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* â”€â”€â”€ CONTACT â”€â”€â”€ */
+    #contact {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    #contact h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    #contact h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    #contact p {
+      font-size: 0.7rem;
+      color: var(--warm-gray);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--text-dim);
+      transition: all 0.3s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .contact-link.primary {
+      background: var(--accent);
+      color: var(--black);
+      border-color: var(--accent);
+    }
+
+    .contact-link.primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    /* â”€â”€â”€ FOOTER â”€â”€â”€ */
+    footer {
+      border-top: 1px solid var(--text-dim);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+    }
+
+    /* â”€â”€â”€ LIGHTBOX GALLERY â”€â”€â”€ */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .lightbox-container {
+      position: relative;
+      width: 90vw;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      animation: slideIn 0.4s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(200, 184, 154, 0.2);
+      border: 1px solid rgba(200, 184, 154, 0.4);
+      color: var(--off-white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      pointer-events: all;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(200, 184, 154, 0.35);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lightbox-prev {
+      left: 1.5rem;
+    }
+
+    .lightbox-next {
+      right: 1.5rem;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 40px;
+      height: 40px;
+      background: rgba(240, 236, 228, 0.1);
+      border: 1px solid rgba(240, 236, 228, 0.3);
+      color: var(--off-white);
+      font-size: 1.25rem;
+      cursor: pointer;
+      pointer-events: all;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 15;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(200, 184, 154, 0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      font-family: 'Futura PT', sans-serif;
+      letter-spacing: 0.1em;
+      pointer-events: all;
+    }
+
+    .lightbox-dots {
+      position: absolute;
+      bottom: 3.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.6rem;
+      pointer-events: all;
+    }
+
+    .lightbox-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(200, 184, 154, 0.3);
+      border: 1px solid rgba(200, 184, 154, 0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lightbox-dot.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.2);
+    }
+
+    .gallery-image {
+      cursor: pointer;
+      transition: filter 0.3s, transform 0.3s;
+    }
+
+    .gallery-image:hover {
+      filter: brightness(0.8);
+      transform: scale(1.02);
+    }
+
+    /* â”€â”€â”€ LANGUAGE SWITCH â”€â”€â”€ */
+    .language-switch {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      padding: 0.65rem 0.9rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .language-switch:hover {
+      border-color: rgba(200, 184, 154, 0.7);
+      color: var(--accent);
+    }
+
+    /* Hide scrollbars */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    html {
+      scrollbar-width: none;
+    }
+
+    /* â”€â”€â”€ RESPONSIVE â”€â”€â”€ */
+    @media (max-width: 1024px) {
+      html {
+        font-size: 130%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 110%;
+      }
+
+      nav {
+        padding: 1rem 1.2rem;
+        gap: 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.9rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .language-switch {
+        display: inline-flex;
+      }
+
+      section {
+        padding: 3rem 1.2rem;
+      }
+
+      .hero-content {
+        padding: 0 1.2rem 3rem;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-text h2 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+      }
+
+      .about-text p {
+        font-size: 0.65rem;
+      }
+
+      #work {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      #work h2 {
+        grid-column: 1;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+      }
+
+      .slider-wrap {
+        padding: 0 1rem;
+      }
+
+      .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+
+      .slider-arrow.prev {
+        left: 0.5rem;
+      }
+
+      .slider-arrow.next {
+        right: 0.5rem;
+      }
+
+      .slide img {
+        max-height: 50vh;
+      }
+
+      #contact h2 {
+        font-size: clamp(2rem, 6vw, 4rem);
+      }
+
+      .contact-link {
+        font-size: 0.6rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+        font-size: 0.55rem;
+        padding: 1.5rem 1.2rem;
+      }
+
+      .lightbox-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .lightbox-prev {
+        left: 0.8rem;
+      }
+
+      .lightbox-next {
+        right: 0.8rem;
+      }
+
+      .lightbox-close {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .lightbox-container {
+        width: 95vw;
+        height: 85vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 95%;
+      }
+
+      nav {
+        padding: 0.8rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .nav-links {
+        right: 1rem;
+        top: 50px;
+        min-width: 180px;
+      }
+
+      section {
+        padding: 2.5rem 1rem;
+      }
+
+      .section-label {
+        font-size: 0.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .divider {
+        margin: 1rem 0 2rem;
+      }
+
+      .hero-content {
+        padding: 0 1rem 2.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.55rem;
+      }
+
+      .hero-sub {
+        font-size: 0.6rem;
+      }
+
+      .about-text h2 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        margin-bottom: 1.5rem;
+      }
+
+      .about-text p {
+        font-size: 0.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-contact {
+        gap: 1rem;
+        flex-direction: column;
+      }
+
+      .about-contact a {
+        font-size: 0.55rem;
+      }
+
+      .about-image-wrap::before {
+        inset: -8px -8px 8px 8px;
+      }
+
+      #work {
+        gap: 1.5rem;
+        margin: 0 auto;
+      }
+
+      #work h2 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        margin-bottom: 2rem;
+      }
+
+      .work-block h3 {
+        font-size: 0.55rem;
+        margin-bottom: 1rem;
+      }
+
+      .work-list li {
+        font-size: 0.65rem;
+      }
+
+      .projects-header h2 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+      }
+
+      .album-header h2 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .album-desc {
+        font-size: 0.6rem;
+        margin-top: 0.5rem;
+      }
+
+      #contact h2 {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+        margin-bottom: 1rem;
+      }
+
+      #contact p {
+        font-size: 0.6rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-links {
+        gap: 1rem;
+        flex-direction: column;
+      }
+
+      .contact-link {
+        font-size: 0.55rem;
+        padding: 0.7rem 1rem;
+        width: 100%;
+      }
+
+      .slider-wrap {
+        padding: 0;
+      }
+
+      .slider-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+
+      .slider-arrow.prev {
+        left: 0.3rem;
+      }
+
+      .slider-arrow.next {
+        right: 0.3rem;
+      }
+
+      .slide img {
+        max-height: 45vh;
+      }
+
+      .slider-dots {
+        gap: 0.4rem;
+        margin-top: 1rem;
+      }
+
+      .slider-dot {
+        width: 5px;
+        height: 5px;
+      }
+
+      .vimeo-wrap {
+        padding: 0 1rem 1.5rem;
+      }
+
+      footer {
+        padding: 1rem 1rem;
+      }
+
+      .lightbox-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+
+      .lightbox-prev {
+        left: 0.5rem;
+      }
+
+      .lightbox-next {
+        right: 0.5rem;
+      }
+
+      .lightbox-close {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        top: 0.8rem;
+        right: 0.8rem;
+      }
+
+      .lightbox-counter {
+        font-size: 0.7rem;
+        bottom: 1rem;
+      }
+
+      .lightbox-dots {
+        bottom: 2.5rem;
+        gap: 0.5rem;
+      }
+
+      .lightbox-dot {
+        width: 6px;
+        height: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Samuel Cobo</a>
+    <button id="languageSwitch" class="language-switch" type="button" aria-label="Switch language"
+      style="display: none;">ES</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#reel">Reel</a></li>
+      <li><a href="#orchestra">Orchestra</a></li>
+      <li><a href="#live">Live Music</a></li>
+      <li><a href="#street">Street</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- LIGHTBOX GALLERY -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <div class="lightbox-container">
+      <div class="lightbox-nav">
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-btn lightbox-next" id="lightboxNext">›</button>
+      </div>
+      <img class="lightbox-image" id="lightboxImage" alt="Full size image" />
+      <div class="lightbox-dots" id="lightboxDots"></div>
+      <div class="lightbox-counter">
+        <span id="lightboxCounter">1 / 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Photography Portfolio · Madrid</p>
+      <h1 class="hero-title">Samuel<br /><em>Cobo</em></h1>
+      <p class="hero-sub">Documentary · Live Music · Orchestra</p>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div id="about">
+      <div class="about-image-wrap">
+        <img class="about-img" id="aboutImg" src="img/about.jpg" alt="Samuel Cobo" />
+      </div>
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2>Hello,<br />my name is<br /><em>Samuel.</em></h2>
+        <div class="divider"></div>
+        <p>
+          Samuel is a photographer based in Madrid. His work is rooted in a documentary approach, capturing the real
+          energy of each moment without interfering or staging.
+        </p>
+        <p>
+          Interested in what happens beyond the obvious â€” the gestures, the atmosphere, the in-between frames that
+          define an event. Whether in concert halls or live venues, the goal is to translate the experience of being
+          there into images that feel immediate and authentic.
+        </p>
+        <div class="about-contact">
+          <a href="mailto:contacto.samuelcobo@gmail.com">contacto.samuelcobo@gmail.com</a>
+          <a href="https://linktr.ee/samusanjacobo" target="_blank">linktr.ee/samusanjacobo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REEL -->
+  <section id="reel" style="padding-left:0;padding-right:0;">
+    <div class="projects-header" style="padding:0 3rem 3rem;">
+      <p class="section-label">Showreel</p>
+      <h2>Reel</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="vimeo-wrap">
+      <div class="vimeo-inner">
+        <iframe src="https://player.vimeo.com/video/1022295533?autoplay=0&title=0&byline=0&portrait=0&color=c8b89a"
+          frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Samuel Cobo â€” Reel">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM: ORCHESTRA -->
+  <section id="orchestra" class="album-section" style="padding-left:0;padding-right:0;">
+    <div class="album-header" style="padding:0 3rem;">
+      <p class="section-label">Album</p>
+      <h2>Orchestra</h2>
+      <div class="divider"></div>
+      <p class="album-desc">Live performance demands precision, awareness and timing. I document concerts with a
+        discreet presence, focusing on expression, coordination and atmosphere. From full ensemble moments to individual
+        musicians, my aim is to translate the intensity and precision of each show into still images. Every concert is
+        approached with respect for the stage, the audience and the music itself. With experience working with large
+        ensembles, I adapt confidently to low-light environments and provide complete visual coverage, from
+        rehearsals to the live show.</p>
+    </div>
+    <div class="slider-wrap">
+      <div class="slider-track">
+        <div class="slider-inner" data-slider="orchestra">
+          <!-- ORCHESTRA: cambia "foto1.jpg" por el nombre de tu archivo -->
+          <div class="slide"><img class="gallery-image" src="img/orchestra/ofoto1.png" alt="Orchestra 1"
+              data-album="orchestra" /></div>
+          <div class="slide"><img class="gallery-image" src="img/orchestra/ofoto2.png" alt="Orchestra 2"
+              data-album="orchestra" /></div>
+          <div class="slide"><img class="gallery-image" src="img/orchestra/ofoto3.png" alt="Orchestra 3"
+              data-album="orchestra" /></div>
+          <div class="slide"><img class="gallery-image" src="img/orchestra/ofoto4.png" alt="Orchestra 4"
+              data-album="orchestra" /></div>
+          <div class="slide"><img class="gallery-image" src="img/orchestra/ofoto5.png" alt="Orchestra 5"
+              data-album="orchestra" /></div>
+          <div class="slide"><img class="gallery-image" src="img/orchestra/ofoto6.png" alt="Orchestra 6"
+              data-album="orchestra" /></div>
+          <!-- Para aÃ±adir mÃ¡s fotos: copia las dos lÃ­neas de arriba y aÃ±ade un <button class="slider-dot"></button> abajo -->
+        </div>
+        <button class="slider-arrow prev" data-target="orchestra">←</button>
+        <button class="slider-arrow next" data-target="orchestra">→</button>
+      </div>
+      <div class="slider-dots" data-dots="orchestra">
+        <button class="slider-dot active"></button><!-- un punto por foto -->
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM: LIVE MUSIC -->
+  <section id="live" class="album-section" style="padding-left:0;padding-right:0;">
+    <div class="album-header" style="padding:0 3rem;">
+      <p class="section-label">Album</p>
+      <h2>Live Music</h2>
+      <div class="divider"></div>
+      <p class="album-desc">Music is presence, rhythm and atmosphere. I document performances as they unfold, focusing
+        on timing, expression and the relationship between artists, audience and space. Whether in concert halls or live
+        venues, my goal is to translate the experience of being there into images that feel immediate and authentic. I
+        capture live shows as they happen, reacting quickly to shifting lights, spontaneous interactions and the
+        intensity of the stage. Each frame aims to preserve the raw connection between artist and audience.</p>
+    </div>
+    <div class="slider-wrap">
+      <div class="slider-track">
+        <div class="slider-inner" data-slider="live">
+          <!-- LIVE MUSIC: cambia "foto1.jpg" por el nombre de tu archivo -->
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto1.png" alt="Live Music 1"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto2.png" alt="Live Music 2"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto3.jpg" alt="Live Music 3"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto4.png" alt="Live Music 4"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto5.png" alt="Live Music 5"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto6.jpg" alt="Live Music 6"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto7.png" alt="Live Music 7"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto8.png" alt="Live Music 8"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto9.jpg" alt="Live Music 9"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto10.png" alt="Live Music 10"
+              data-album="live" /></div>
+          <div class="slide"><img class="gallery-image" src="img/live/lfoto11.jpg" alt="Live Music 11"
+              data-album="live" /></div>
+
+          <!-- Para aÃ±adir mÃ¡s fotos: copia las dos lÃ­neas de arriba y aÃ±ade un <button class="slider-dot"></button> abajo -->
+        </div>
+        <button class="slider-arrow prev" data-target="live">←</button>
+        <button class="slider-arrow next" data-target="live">→</button>
+      </div>
+      <div class="slider-dots" data-dots="live">
+        <button class="slider-dot active"></button><!-- un punto por foto -->
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM: STREET -->
+  <section id="street" class="album-section" style="padding-left:0;padding-right:0;">
+    <div class="album-header" style="padding:0 3rem;">
+      <p class="section-label">Album</p>
+      <h2>Street</h2>
+      <div class="divider"></div>
+      <p class="album-desc">Rooted in a documentary approach, capturing the real energy of each moment without
+        interfering or staging. Interested in what happens beyond the obvious â€” the gestures, the atmosphere, the
+        in-between frames that define a place. Street photography as a record of life unfolding, honest and immediate.
+      </p>
+    </div>
+    <div class="slider-wrap">
+      <div class="slider-track">
+        <div class="slider-inner" data-slider="street">
+          <!-- STREET: cambia "foto1.jpg" por el nombre de tu archivo -->
+          <div class="slide"><img class="gallery-image" src="img/street/sfoto1.png" alt="Street 1"
+              data-album="street" /></div>
+          <div class="slide"><img class="gallery-image" src="img/street/sfoto2.png" alt="Street 2"
+              data-album="street" /></div>
+          <div class="slide"><img class="gallery-image" src="img/street/sfoto3.png" alt="Street 3"
+              data-album="street" /></div>
+          <div class="slide"><img class="gallery-image" src="img/street/sfoto4.png" alt="Street 4"
+              data-album="street" /></div>
+          <div class="slide"><img class="gallery-image" src="img/street/sfoto5.png" alt="Street 5"
+              data-album="street" /></div>
+          <!-- Para aÃ±adir mÃ¡s fotos: copia las dos lÃ­neas de arriba y aÃ±ade un <button class="slider-dot"></button> abajo -->
+        </div>
+        <button class="slider-arrow prev" data-target="street">←</button>
+        <button class="slider-arrow next" data-target="street">→</button>
+      </div>
+      <div class="slider-dots" data-dots="street">
+        <button class="slider-dot active"></button><!-- un punto por foto -->
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- WORK HISTORY -->
+  <section>
+    <div id="work">
+      <h2>Work<br /><em style="font-style:italic;color:var(--accent)">History</em></h2>
+      <div class="work-block">
+        <h3>Experience</h3>
+        <ul class="work-list">
+          <li><span>Photographer</span><span style="color:var(--accent)">Since 2019</span></li>
+          <li><span>Live Music & Events</span><span>Ongoing</span></li>
+          <li><span>Orchestra & Ensembles</span><span>Ongoing</span></li>
+        </ul>
+      </div>
+      <div class="work-block">
+        <h3>Select Clients & Concerts</h3>
+        <ul class="work-list">
+          <li><span>Joven Orquesta Sierra de Madrid</span></li>
+          <li><span>Orquesta Óspal</span></li>
+          <li><span>Orquesta Essentia</span></li>
+          <li><span>Walls</span></li>
+          <li><span>Carolina Durante</span></li>
+          <li><span>Deskuydo</span></li>
+          <li><span>Ángela Viamonte</span></li>
+          <li><span>Paula Román (La Voz Kids)</span></li>
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <div id="contact">
+      <p class="section-label">Get in touch</p>
+      <h2>Let's work<br /><em>together</em></h2>
+      <div class="divider" style="margin:1.5rem auto 2rem;"></div>
+      <p>Available for live music, concerts, orchestras<br />and documentary photography projects in Madrid and beyond.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:contacto.samuelcobo@gmail.com" class="contact-link primary">Send an email</a>
+        <a href="https://linktr.ee/samusanjacobo" target="_blank" class="contact-link">Linktree</a>
+        <a href="https://instagram.com/samusanjacobo" target="_blank" class="contact-link">@samusanjacobo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Samuel Cobo. All rights reserved.</span>
+    <span>Madrid, Spain</span>
+  </footer>
+
+  <script>
+    // â”€â”€ Prevent Zoom and Horizontal Scroll â”€â”€
+    // Prevent pinch zoom
+    document.addEventListener('touchmove', function (e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Prevent scroll zoom with Ctrl/Cmd
+    document.addEventListener('wheel', function (e) {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Prevent horizontal scroll
+    let lastX = 0;
+    let lastY = 0;
+    document.addEventListener('touchstart', function (e) {
+      lastX = e.touches[0].clientX;
+      lastY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function (e) {
+      if (e.target.closest('.slider-inner') || e.target.closest('.lightbox')) {
+        return;
+      }
+
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const diffX = currentX - lastX;
+      const diffY = currentY - lastY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        e.preventDefault();
+      }
+      lastX = currentX;
+      lastY = currentY;
+    }, { passive: false });
+
+    // Current scroll position for body lock
+    let scrollPos = 0;
+    /*
+        // â”€â”€ Language selector â”€â”€
+        const languageSwitch = document.getElementById('languageSwitch');
+        if (languageSwitch) {
+          const currentPage = window.location.pathname.split('/').pop();
+          if (currentPage === 'es.html') {
+            languageSwitch.textContent = 'EN';
+            languageSwitch.dataset.target = 'index.html';
+            languageSwitch.title = 'Switch to English';
+          } else {
+            languageSwitch.textContent = 'ES';
+            languageSwitch.dataset.target = 'es.html';
+            languageSwitch.title = 'Cambiar a español';
+          }
+          languageSwitch.addEventListener('click', () => {
+            window.location.href = languageSwitch.dataset.target;
+          });
+        }
+        */
+    // â”€â”€ Lightbox Gallery â”€â”€
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxDots = document.getElementById('lightboxDots');
+
+    let currentAlbum = [];
+    let currentImageIndex = 0;
+
+    // Collect all gallery images by album
+    const albums = {
+      orchestra: Array.from(document.querySelectorAll('img[data-album="orchestra"]')).map(img => img.src),
+      live: Array.from(document.querySelectorAll('img[data-album="live"]')).map(img => img.src),
+      street: Array.from(document.querySelectorAll('img[data-album="street"]')).map(img => img.src)
+    };
+
+    function openLightbox(albumName, imageIndex) {
+      currentAlbum = albums[albumName];
+      currentImageIndex = imageIndex;
+      lightbox.classList.add('active');
+      scrollPos = window.scrollY;
+      document.body.style.overflow = 'hidden';
+      updateLightbox();
+      createLightboxDots();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      window.scrollTo(0, scrollPos);
+    }
+
+    function updateLightbox() {
+      if (currentAlbum.length === 0) return;
+      lightboxImage.src = currentAlbum[currentImageIndex];
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentAlbum.length}`;
+      updateLightboxDots();
+    }
+
+    function createLightboxDots() {
+      lightboxDots.innerHTML = '';
+      currentAlbum.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'lightbox-dot' + (index === currentImageIndex ? ' active' : '');
+        dot.addEventListener('click', () => {
+          currentImageIndex = index;
+          updateLightbox();
+        });
+        lightboxDots.appendChild(dot);
+      });
+    }
+
+    function updateLightboxDots() {
+      document.querySelectorAll('.lightbox-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentImageIndex);
+      });
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentAlbum.length;
+      updateLightbox();
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentAlbum.length) % currentAlbum.length;
+      updateLightbox();
+    }
+
+    // Gallery image click handlers
+    document.querySelectorAll('.gallery-image').forEach(img => {
+      img.addEventListener('click', (e) => {
+        const albumName = img.getAttribute('data-album');
+        const imageIndex = albums[albumName].indexOf(img.src);
+        openLightbox(albumName, imageIndex);
+      });
+    });
+
+    // Lightbox controls
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', prevImage);
+    lightboxNext.addEventListener('click', nextImage);
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Touch swipe support for lightbox
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? nextImage() : prevImage();
+      }
+    });
+
+    // â”€â”€ Slider functionality (existing) â”€â”€
+    const sliders = document.querySelectorAll('[data-slider]');
+    sliders.forEach(slider => {
+      const name = slider.getAttribute('data-slider');
+      const inner = slider;
+      const slides = inner.querySelectorAll('.slide');
+      const prevBtn = document.querySelector(`button[data-target="${name}"].prev`);
+      const nextBtn = document.querySelector(`button[data-target="${name}"].next`);
+      const dots = document.querySelectorAll(`[data-dots="${name}"] .slider-dot`);
+
+      let current = 0;
+
+      function goTo(index) {
+        current = (index % slides.length + slides.length) % slides.length;
+        inner.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      prevBtn?.addEventListener('click', () => goTo(current - 1));
+      nextBtn?.addEventListener('click', () => goTo(current + 1));
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goTo(index));
+      });
+
+      let touchStartX = 0;
+      inner.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      inner.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      });
+    });
+
+    // â”€â”€ Subtle parallax on hero â”€â”€
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      heroBg.style.transform = `translateY(${y * 0.4}px)`;
+    }, { passive: true });
+  </script>
+</body>
+
+>>>>>>> 6643341f6a40347471a8135a02a0d10f3b136735
 </html>
